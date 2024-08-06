@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6km236gwvrdd"]
+
+[ext_resource type="Script" path="res://Main/Balls/balls.gd" id="1_j5ocm"]
+
+[node name="Balls" type="Node3D"]
+script = ExtResource("1_j5ocm")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

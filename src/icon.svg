@@ -1,0 +1,22 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="white"/>
+    <path d="M10,10 H490 V490 H10 Z" stroke="black" fill="none" stroke-width="5"/>
+    
+    <!-- Horizontal paths -->
+    <path d="M10,50 H490" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M10,100 H200" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M300,100 H490" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M10,200 H300" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M350,200 H490" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M10,300 H400" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M10,400 H490" stroke="black" fill="none" stroke-width="5"/>
+  
+    <!-- Vertical paths -->
+    <path d="M50,10 V490" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M150,10 V200" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M150,300 V490" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M250,10 V400" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M350,10 V350" stroke="black" fill="none" stroke-width="5"/>
+    <path d="M450,10 V490" stroke="black" fill="none" stroke-width="5"/>
+  </svg>
+  

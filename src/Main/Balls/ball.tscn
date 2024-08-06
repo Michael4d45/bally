@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlj304r6hlcyn"]
+
+[ext_resource type="Script" path="res://Main/Balls/ball.gd" id="1_l0ffb"]
+[ext_resource type="Shader" path="res://Main/Balls/ball.gdshader" id="1_yn1g2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tfibf"]
+radius = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtmxu"]
+render_priority = 0
+shader = ExtResource("1_yn1g2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jxr5g"]
+material = SubResource("ShaderMaterial_mtmxu")
+radius = 2.5
+height = 5.0
+
+[node name="Ball" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_l0ffb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tfibf")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jxr5g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true

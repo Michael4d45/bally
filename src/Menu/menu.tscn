@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://to16eupkpglb"]
+
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_alqm8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alqm8")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 101.0
+offset_right = 577.0
+offset_bottom = 190.0
+text = "Exit"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 246.0
+offset_right = 626.0
+offset_bottom = 347.0
+text = "Back"
+
+[connection signal="button_down" from="ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]

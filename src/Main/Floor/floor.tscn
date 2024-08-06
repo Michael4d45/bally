@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpqkciy1afvtc"]
+
+[ext_resource type="Shader" path="res://Main/Floor/floor.gdshader" id="1_k7a6h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68dg1"]
+size = Vector3(100, 2, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6kaw"]
+render_priority = 0
+shader = ExtResource("1_k7a6h")
+shader_parameter/grid_color = Color(0.458824, 0, 0, 1)
+shader_parameter/background_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.05
+shader_parameter/cell_size = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_kh4iy"]
+material = SubResource("ShaderMaterial_o6kaw")
+size = Vector3(100, 2, 100)
+
+[node name="Floor" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_68dg1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kh4iy")
+skeleton = NodePath("../CollisionShape3D")

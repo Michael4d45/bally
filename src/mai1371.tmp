@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://f8dkrtgid5nm"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_v8huk"]
+[ext_resource type="Shader" path="res://ball.gdshader" id="2_4510q"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_f4cu6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dn5e"]
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6vxo4"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0cuhf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtmxu"]
+render_priority = 0
+shader = ExtResource("2_4510q")
+
+[sub_resource type="SphereMesh" id="SphereMesh_our12"]
+material = SubResource("ShaderMaterial_mtmxu")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_v8huk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+omni_range = 196.664
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.553973, -0.372853, 0.744375, 0, 0.894107, 0.447853, -0.832535, -0.248098, 0.495311, 1.61723, 1.88936, 2.54068)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_5dn5e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_6vxo4")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.453, 2.14846, 0.346)
+collision_mask = 2
+script = ExtResource("2_f4cu6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_0cuhf")
+
+[node name="Ball" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_our12")
+skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.920013, 0.391888, 0, -0.391888, 0.920013, -0.000208199, 2.20427, 2.85517)
+fov = 82.7307

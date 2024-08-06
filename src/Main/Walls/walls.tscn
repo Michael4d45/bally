@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://is64nf8yk3ke"]
+
+[ext_resource type="Script" path="res://Main/Walls/walls.gd" id="1_sv1q3"]
+[ext_resource type="PackedScene" uid="uid://dtwr0cps7jwf4" path="res://Main/Walls/boarder.tscn" id="2_myqkx"]
+
+[node name="Walls" type="Node3D"]
+script = ExtResource("1_sv1q3")
+
+[node name="Boarder" parent="." instance=ExtResource("2_myqkx")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
