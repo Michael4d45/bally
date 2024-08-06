@@ -1,6 +1,10 @@
 name: "Godot test"
 on: push
 
+env:
+  GODOT_VERSION: 4.2.1
+  PROJECT_PATH: src
+
 jobs:
   test:
     name: Run Tests
